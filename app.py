@@ -1,3 +1,5 @@
 def app(env, start_response):
-    start_response('200 OK', [('Content-type', 'text/plain')])
-    return [b'Hello World!\n']
+    from pyinfo import pyinfo
+    output = pyinfo()
+    start_response('200 OK', [('Content-type', 'text/html')])
+    return [bytes(output, 'utf-8')]
